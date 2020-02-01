@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 10 )
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 870, 502 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 818, 460 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -0.500001 )
+scale = Vector2( 1, 0.296875 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 880, 526 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D3"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -0.500001 )
+scale = Vector2( 1, 0.296875 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 840, 502 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -0.500001 )
+scale = Vector2( 1, 0.296875 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( 920, 504 )
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -0.500001 )
+scale = Vector2( 1, 0.296875 )
+texture = ExtResource( 2 )

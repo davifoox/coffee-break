@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit_floor.wav-121809b39c1f14ded841e477ea85f845.sample"
+
+[deps]
+
+source_file="res://audio/sfx/hit_floor.wav"
+dest_files=[ "res://.import/hit_floor.wav-121809b39c1f14ded841e477ea85f845.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
