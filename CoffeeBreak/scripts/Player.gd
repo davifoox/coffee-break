@@ -12,11 +12,11 @@ onready var animation_player_effects = $AnimationPlayerEffects
 
 #onready var audio = $AudioStreamPlayer
 
-var speed = 100
-var acc = 30
-var gravity = 800
+var speed = 500
+var acc = 50
+var gravity = 2500
 var velocity = Vector2()
-var jump_force = 200
+var jump_force = 750
 var floor_normal = Vector2(0, -1)
 var current_anim = "idle"
 var alive = true
@@ -131,13 +131,11 @@ func flip_player(direction):
 #		return
 	
 	if direction == "right":
-		$Sprites/SpriteHead.flip_h = false
-		$Sprites/SpriteBody.flip_h = false
-		$Position2DGun.position = Vector2(6, 1.5)
+		$Sprite.flip_h = true
+		$Sprite.flip_h = true
 	elif direction == "left":
-		$Sprites/SpriteHead.flip_h = true
-		$Sprites/SpriteBody.flip_h = true
-		$Position2DGun.position = Vector2(-6, 1.5)
+		$Sprite.flip_h = false
+		$Sprite.flip_h = false
 		
 	current_dir = direction
 		
@@ -234,7 +232,7 @@ func play_sprite_effect(effect_name):
 			animation_player_effects.play("hit_floor")
 	
 func fall_check():
-	if position.y > 300:
+	if position.y > 1080 + 100:
 		alive = false
 		set_physics_process(false)
 		play_sound("die")
@@ -261,9 +259,12 @@ func die():
 	yield($TimerLose, "timeout")
 	
 func wall_jump(delta):
+	
+	var wall_jump_force_mult = 600
+	
 	if is_on_floor():
 		jumped = false
-	var wall_jump_force = Vector2((wall_jump_dir) * 150, -jump_force)
+	var wall_jump_force = Vector2((wall_jump_dir) * wall_jump_force_mult, -jump_force)
 	just_wall_jumped_timer_left -= delta
 	has_just_touched_wall_timer_left -= delta
 	
@@ -272,8 +273,7 @@ func wall_jump(delta):
 			velocity.y *= wall_friction
 		has_just_touched_wall_timer_left = has_just_touched_wall_timer
 		wall_jump_dir = 1
-		$Sprites/SpriteBody.flip_h = true
-		$Sprites/SpriteHead.flip_h = true
+		$Sprite.flip_h = true
 		if last_side_collision != "left":
 			last_side_collision = "left"
 			jumped = false
@@ -282,14 +282,13 @@ func wall_jump(delta):
 			velocity.y *= wall_friction
 		has_just_touched_wall_timer_left = has_just_touched_wall_timer
 		wall_jump_dir = -1
-		$Sprites/SpriteBody.flip_h = false
-		$Sprites/SpriteHead.flip_h = false
+		$Sprite.flip_h = false
 		if last_side_collision != "right":
 			last_side_collision = "right"
 			jumped = false
 		jumped = false
 		
-	wall_jump_force = Vector2((wall_jump_dir) * 150, -jump_force)
+	wall_jump_force = Vector2((wall_jump_dir) * wall_jump_force_mult, -jump_force)
 	
 	if has_just_touched_wall_timer_left > 0 and !jumped:
 		if !is_on_floor():

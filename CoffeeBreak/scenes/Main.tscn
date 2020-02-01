@@ -4,59 +4,50 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 10 )
+extents = Vector2( 395.024, 36.9119 )
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 870, 502 )
+position = Vector2( 523.186, 267.097 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 818, 460 )
+position = Vector2( 183.907, 536.371 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 331.217, 27.075 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.500001 )
-scale = Vector2( 1, 0.296875 )
+position = Vector2( 337.986, 22.3304 )
+scale = Vector2( 11.5621, 1.01033 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( 880, 526 )
+position = Vector2( 314.181, 332.609 )
+rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 331.217, 27.075 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D3"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.500001 )
-scale = Vector2( 1, 0.296875 )
+position = Vector2( 337.986, 22.3304 )
+scale = Vector2( 11.5621, 1.01033 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2( 840, 502 )
+position = Vector2( 141.649, -12.2567 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 331.217, 27.075 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D2"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.500001 )
-scale = Vector2( 1, 0.296875 )
-texture = ExtResource( 2 )
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
-position = Vector2( 920, 504 )
-rotation = -1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="StaticBody2D4"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, -0.500001 )
-scale = Vector2( 1, 0.296875 )
+position = Vector2( 337.986, 22.3304 )
+scale = Vector2( 11.5621, 1.01033 )
 texture = ExtResource( 2 )
