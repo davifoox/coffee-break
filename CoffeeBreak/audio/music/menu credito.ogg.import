@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/menu credito.ogg-ffd5206bd5c07fb6cdda73607c88970b.oggstr"
+
+[deps]
+
+source_file="res://audio/music/menu credito.ogg"
+dest_files=[ "res://.import/menu credito.ogg-ffd5206bd5c07fb6cdda73607c88970b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/screens/tela titulo.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=2]
+
+[node name="Menu" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ButtonStart" type="Button" parent="."]
+margin_left = 352.0
+margin_top = 941.0
+margin_right = 787.0
+margin_bottom = 1039.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCredits" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 935.0
+margin_right = 1331.0
+margin_bottom = 1040.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="pressed" from="ButtonCredits" to="." method="_on_ButtonCredits_pressed"]

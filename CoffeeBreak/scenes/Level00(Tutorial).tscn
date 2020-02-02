@@ -1,0 +1,148 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://sprites/fase tutorialbg.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/FallingPlatform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/BrokenPiece.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Light.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/NextLevelDoor.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1080.01, 31.8226 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40.4757, 269.441 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 268.226, 40.1175 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 319.682, 28.7321 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 205.839, 26.3544 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 32.4377, 86.8704 )
+
+[node name="Level00(Tutorial)" type="Node"]
+
+[node name="BGLevel" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 1135.8, 965.368 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 1906.57, 575.036 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 2168.3, 721.241 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 2630.17, 721.241 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 2399.13, 489.622 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 3032.67, 940.592 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 3603, 802.084 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 3429.07, 887.593 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 186.897, 845.221 )
+camera = true
+
+[node name="SpikesContainer" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spikes" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 646.117, 951.29 )
+
+[node name="Spikes2" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 1467.96, 958.059 )
+
+[node name="Spikes3" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 1604.92, 959.606 )
+
+[node name="Spikes4" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 2809.39, 932.467 )
+
+[node name="Spikes5" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 2979.98, 938.929 )
+
+[node name="Spikes6" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 3127.31, 937.636 )
+
+[node name="Spikes7" parent="SpikesContainer" instance=ExtResource( 3 )]
+position = Vector2( 3260.42, 938.929 )
+
+[node name="FallingPlatform" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1477.65, 834.747 )
+
+[node name="FallingPlatform2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2909.06, 759.768 )
+
+[node name="FallingPlatform3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3174.89, 757.496 )
+
+[node name="BrokenPiece" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2461.95, 393.787 )
+is_tutorial = true
+
+[node name="Light" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2025.94, 693.084 )
+
+[node name="Key" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2023.89, 682.832 )
+
+[node name="NextLevelDoor" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3781.68, 674.142 )
+next_level = "res://scenes/Level01.tscn"

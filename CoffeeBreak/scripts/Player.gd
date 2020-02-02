@@ -16,7 +16,7 @@ var speed = 500
 var acc = 50
 var gravity = 2500
 var velocity = Vector2()
-var jump_force = 750
+var jump_force = 800
 var floor_normal = Vector2(0, -1)
 var current_anim = "idle"
 var alive = true
@@ -57,12 +57,19 @@ var step_sound_time = 0.2
 var step_sound_time_left = 0
 
 var dead = false
+var has_key = false
+
+export var camera = false
 
 func _ready():
+	$Camera2D.current = camera
 	Engine.time_scale = 1
 	flip_player(current_dir)
 
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	
 	if dead:
 		velocity.x = 0
@@ -131,11 +138,9 @@ func flip_player(direction):
 #		return
 	
 	if direction == "right":
-		$Sprite.flip_h = true
-		$Sprite.flip_h = true
+		$Sprite.flip_h = false
 	elif direction == "left":
-		$Sprite.flip_h = false
-		$Sprite.flip_h = false
+		$Sprite.flip_h = true
 		
 	current_dir = direction
 		
@@ -250,13 +255,15 @@ func lose():
 func die():
 	if dead:
 		return
-	Engine.time_scale = 1
-	get_tree().get_nodes_in_group("camera")[0].shake()
-	$SFX/ShotInTheHead.play()
 	$AnimationPlayer.play("die")
 	dead = true
-	$TimerLose.start()
-	yield($TimerLose, "timeout")
+	alive = false
+	set_physics_process(false)
+	play_sound("die")
+	yield($AnimationPlayer, "animation_finished")
+	get_tree().reload_current_scene()
+#	$TimerLose.start()
+#	yield($TimerLose, "timeout")
 	
 func wall_jump(delta):
 	
@@ -318,3 +325,10 @@ func _on_Area2DLeft_body_exited(body):
 func _on_Area2DRight_body_exited(body):
 	if body.name != name and !body.is_in_group("enemy"):
 		area2d_right_colliding = false
+
+func get_key():
+	has_key = true
+	$SFX/GetKey.play()
+	
+func play_fix_sound():
+	$SFX/Fix.play()
